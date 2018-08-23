@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Tesbih App</title>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+    height:100vh;
+}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    background-color: rgb(13, 139, 123);
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    border-right: 2px solid rgb(41, 153, 137);
+    border-left: 2px solid rgb(41, 153, 137);
+    outline: 0;
+    cursor: pointer;
+    width:33.33%;
+    padding: 30px 0;
+    transition: 0.3s;
+    font-size: 10px;
+    color: #fff;
+    text-shadow: 0.5px 0.5px 1px #000000;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: rgb(41, 153, 137);
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: rgb(41, 153, 137);
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    width: 100%;
+    padding: 6px 12px;
+    position: fixed;
+    top: 69px;
+    bottom: 0;
+    left: -12px;
+    border: 1px solid rgb(41, 153, 137);
+    background-color: rgb(41, 153, 137);
+    border-top: none;
+}
+/* Style the circle */
+.rrethi {
+    display: grid;
+    align-content: center;
+    grid-template-columns: auto;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: rgb(13, 139, 123);
+    position: relative;
+}
+.text-center {
+    text-align: center;
+    color: #fff;
+    letter-spacing: 1px;
+    margin-top: 70px;
+    text-shadow: 1px 1px 3px #000000;
+}
+.qenderzimi h1 {
+    font-size: 600%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: whitesmoke;
+    text-shadow: 2px 2px 4px #000000;
+}
+.reset {
+    position: fixed;
+    bottom: 0;
+    letter-spacing: 0.5px;
+    text-shadow: 0.5px 0.5px 1px #000000;
+}
+#faqja-pare {
+    background-color: rgb(41, 153, 137);
+    height: 100%;
+    width:100%;
+    position: fixed;
+    top: 69px;
+    bottom:0;
+   /* margin-top:-20px; */
+}
+#faqja-pare p {
+    padding: 30px 15px;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    line-height: 1.4;
+    text-shadow: 1px 1px 2px #000000;
+}
+
+.tabcontent:active .rrethi {
+	animation: ngjyra 0.1s linear;
+}
+
+@-webkit-keyframes ngjyra {
+	0%   {background-color:rgb(13, 139, 123);}
+	100% {background-color:rgb(45, 157, 141);}
+}
+
+@keyframes ngjyra {
+	0%   {background-color:rgb(13, 139, 123);}
+	100% {background-color:rgb(45, 157, 141);}
+}
+
+</style>
+<body>
+
+    <div class="tab">
+        <button class="tablinks" onclick="openDua(event, 'subhanallah')">SUBHANALLAH</button>
+        <button class="tablinks" onclick="openDua(event, 'elhamdulilah')">ELHAMDULIL-LAH</button>
+        <button class="tablinks" onclick="openDua(event, 'allahu-ekber')">ALLAHU EKBER</button>
+    </div>
+
+      <div id="subhanallah" class="tabcontent" onclick="klikoSubh()">
+        <h3 class="text-center">SUBHANALLAH</h3>
+        <div class="rrethi">
+            <div class="qenderzimi">
+                <h1 id="subh">0</h1>
+            </div>
+        </div>
+        <div class="reset">
+            <h5 onclick = "window.location.reload()" style="cursor: pointer; color: white; margin-left: 10px">RINIS</h5>
+        </div>
+      </div>
+      
+      <div id="elhamdulilah" class="tabcontent" onclick="klikoElha()">
+        <h3 class="text-center">ELHAMDULIL-LAH</h3>
+        <div class="rrethi">
+            <div class="qenderzimi">
+                <h1 id="elha">0</h1>
+            </div>
+        </div>
+        <div class="reset">
+            <h5 onclick = "window.location.reload()" style="cursor: pointer; color: white; margin-left: 10px">RINIS</h5>
+        </div>
+      </div>
+      
+      <div id="allahu-ekber" class="tabcontent" onclick="klikoAlle()">
+        <h3 class="text-center">ALLAHU EKBER</h3>
+        <div class="rrethi">
+            <div class="qenderzimi">
+                <h1 id="alle">0</h1>
+            </div>
+        </div>
+        <div class="reset">
+            <h5 onclick = "window.location.reload()" style="cursor: pointer; color: white; margin-left: 10px">RINIS</h5>
+        </div>
+      </div>
+
+      <div id="faqja-pare">
+        <p style="padding-bottom:0">BISMIL-LAHIRR-RRAMANIRR-RRAHIM</p>
+        <p style="padding-top:0">
+			All-llahu La Ilahe il-la huvel-Hajjul-Kajjumu, la te’hudhuhu sinetun ve la nevmun, 
+			lehu ma fis-semavati ve ma fil-erdi, men dhel-ledhi jeshfe’u indehu il-la bi idhnihi, 
+			ja’lemu ma bejne ejdihim ve ma halfehum ve la juhitune bi shej’in min ilmihi il-la bima 
+			shae vesi’a Kursijjuhus-semavati vel-erda, ve la jeuduhu hifdhuhuma ve huvel-Alijjul-Adhim
+		</p>
+    </div>
+
+      <script>
+      function openDua(evt, dhikri) {
+          var i, tabcontent, tablinks, faqjaPare;
+          faqjaPare = document.getElementById("faqja-pare");
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+              tabcontent[i].style.display = "none";
+              faqjaPare.style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+              tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+          document.getElementById(dhikri).style.display = "block";
+          evt.currentTarget.className += " active";
+      }
+        function vibrimi() {
+            navigator.vibrate(5);
+        }
+        function vibrimiGjate() {
+            navigator.vibrate(800);
+        }
+
+      let clicksSubh = 0;
+      function klikoSubh() {
+        clicksSubh += 1;
+        vibrimi();
+        document.getElementById("subh").innerHTML = clicksSubh;
+        if (clicksSubh >= 33) {
+            clicksSubh = 32;
+            vibrimiGjate();
+        }
+      };
+      let clicksElha = 0;
+      function klikoElha() {
+        clicksElha += 1;
+        vibrimi();
+        document.getElementById("elha").innerHTML = clicksElha;
+        if (clicksElha >= 33) {
+            clicksElha = 32;
+            vibrimiGjate();
+        }
+      };
+      let clicksAlle = 0;
+      function klikoAlle() {
+        clicksAlle += 1;
+        vibrimi();
+        document.getElementById("alle").innerHTML = clicksAlle;
+        if (clicksAlle >= 33) {
+            clicksAlle = 32;
+            vibrimiGjate();
+        }
+      };
+      </script>
+
+</body>
+</html>
