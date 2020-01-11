@@ -1,8 +1,10 @@
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Tesbih App</title>
+<link rel="shortcut icon" type="image/x-icon" href="foto/logo.png" />
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -179,60 +181,79 @@ body {
 		</p>
     </div>
 
-      <script>
-      function openDua(evt, dhikri) {
-          var i, tabcontent, tablinks, faqjaPare;
-          faqjaPare = document.getElementById("faqja-pare");
-          tabcontent = document.getElementsByClassName("tabcontent");
-          for (i = 0; i < tabcontent.length; i++) {
-              tabcontent[i].style.display = "none";
-              faqjaPare.style.display = "none";
-          }
-          tablinks = document.getElementsByClassName("tablinks");
-          for (i = 0; i < tablinks.length; i++) {
-              tablinks[i].className = tablinks[i].className.replace(" active", "");
-          }
-          document.getElementById(dhikri).style.display = "block";
-          evt.currentTarget.className += " active";
-      }
-        function vibrimi() {
-            navigator.vibrate(5);
+    <script>
+    function openDua(evt, dhikri) {
+        var i, tabcontent, tablinks, faqjaPare;
+        faqjaPare = document.getElementById("faqja-pare");
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+            faqjaPare.style.display = "none";
         }
-        function vibrimiGjate() {
-            navigator.vibrate(800);
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
         }
+        document.getElementById(dhikri).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+    function vibrimi() {
+        navigator.vibrate(5);
+    }
+    function vibrimiGjate() {
+        navigator.vibrate(800);
+    }
 
-      let clicksSubh = 0;
-      function klikoSubh() {
-        clicksSubh += 1;
+    var subhanallah = (function () {
+        var numerimi = 0;
         vibrimi();
-        document.getElementById("subh").innerHTML = clicksSubh;
-        if (clicksSubh >= 33) {
-            clicksSubh = 32;
-            vibrimiGjate();
+        return function() {
+            numerimi += 1;
+            if(numerimi >= 33) {
+                numerimi = 33;
+                vibrimiGjate();
+            } 
+        return numerimi;
         }
-      };
-      let clicksElha = 0;
-      function klikoElha() {
-        clicksElha += 1;
+    })();
+
+    var elhamdulilah = (function () {
+        var numerimi = 0;
         vibrimi();
-        document.getElementById("elha").innerHTML = clicksElha;
-        if (clicksElha >= 33) {
-            clicksElha = 32;
-            vibrimiGjate();
+        return function() {
+            numerimi += 1;
+            if(numerimi >= 33) {
+                numerimi = 33;
+                vibrimiGjate();
+            } 
+        return numerimi;
         }
-      };
-      let clicksAlle = 0;
-      function klikoAlle() {
-        clicksAlle += 1;
+    })();
+
+    var allahuEkber = (function () {
+        var numerimi = 0;
         vibrimi();
-        document.getElementById("alle").innerHTML = clicksAlle;
-        if (clicksAlle >= 33) {
-            clicksAlle = 32;
-            vibrimiGjate();
+        return function() {
+            numerimi += 1;
+            if(numerimi >= 33) {
+                numerimi = 33;
+                vibrimiGjate();
+            } 
+        return numerimi;
         }
-      };
-      </script>
+    })();
+
+    function klikoSubh(){
+        document.getElementById("subh").innerHTML = subhanallah();
+    }
+    function klikoElha(){
+        document.getElementById("elha").innerHTML = elhamdulilah();
+    }
+    function klikoAlle(){
+        document.getElementById("alle").innerHTML = allahuEkber();
+    }
+   
+   </script>
 
 </body>
 </html>
